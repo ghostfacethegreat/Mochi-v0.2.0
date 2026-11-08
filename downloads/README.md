@@ -1,10 +1,13 @@
-# Mochi source bundle
+# Mochi v0.2.0 source download
 
-The downloadable source bundle contains the v0.2.0 prototype. It should be extracted with:
+Download `Mochi-v0.2.0-source.tar.xz` and its SHA-256 checksum from this folder. Then, in Terminal:
 
 ```bash
-tar -xzf mochi-v0.2.0-source.tar.gz
+shasum -a 256 -c Mochi-v0.2.0-source.tar.xz.sha256
+tar -xJf Mochi-v0.2.0-source.tar.xz
 cd Mochi
+chmod +x scripts/install_macos.sh
+./scripts/install_macos.sh
 ```
 
-Then follow `README.md` and `docs/QUICKSTART.md`. The archive is a convenience while the repository source tree is being expanded into browsable Git files. Future releases should publish a versioned archive and checksum together.
+The archive excludes personal memory, secrets, model checkpoints, and local environments. Training (PyTorch) and VTube Studio dependencies are optional extras.

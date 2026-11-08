@@ -1,38 +1,53 @@
 # Quick start
 
-## macOS
+## Download and install on macOS
 
-1. Install Xcode Command Line Tools: `xcode-select --install`.
-2. Install Python 3.10+.
-3. Download and extract the current Mochi v0.2.0 source bundle from the project package.
-4. Open Terminal in the extracted `Mochi` folder.
-5. Install and verify:
+1. Download `Mochi-v0.2.0-source.tar.xz` from the repository's `downloads/` folder.
+2. In Terminal, extract the archive and run the installer:
 
 ```bash
+cd ~/Downloads
+shasum -a 256 -c Mochi-v0.2.0-source.tar.xz.sha256
+tar -xJf Mochi-v0.2.0-source.tar.xz
+cd Mochi
 chmod +x scripts/install_macos.sh
 ./scripts/install_macos.sh
-mochi doctor
+```
+
+The installer creates a Python 3.11 virtual environment, installs the lightweight CLI dependencies, initializes `~/.mochi`, and checks the local setup. It deliberately does not install PyTorch training or VTube Studio dependencies by default.
+
+## Run Mochi
+
+```bash
+cd ~/Downloads/Mochi
+source .venv/bin/activate
 mochi
 ```
 
-The GitHub repository is currently being populated with its complete browsable source tree. Until that upload is complete, the source bundle is the runnable distribution; a plain clone may only contain docs and project metadata.
-
-## Optional Blender support
-
-Install Blender from https://www.blender.org/download/ and ensure its executable is available on PATH, or configure its path in Mochi. Check with `mochi blender doctor`.
-
-## First useful commands
+Useful commands:
 
 ```bash
 mochi doctor
 mochi status
+mochi --help
+mochi think "Build a small Python API with tests"
 mochi agent languages
 mochi blender presets
-mochi project list
 ```
+
+## Optional dependencies
+
+```bash
+source .venv/bin/activate
+pip install -e '.[train]'  # PyTorch + NumPy for local training
+pip install -e '.[vtube]'  # VTube Studio WebSocket + keyring support
+```
+
+Blender is installed separately from https://www.blender.org/download/. Check it with `mochi blender doctor`.
 
 ## Troubleshooting
 
-- If `mochi` is not found, activate the virtual environment created by the installer or re-open Terminal after installation.
-- If MPS is unavailable, the training prototype may use CPU; do not assume Metal acceleration until `mochi doctor` reports it.
-- If Blender is missing, the CLI can still be used; Blender export requires Blender installed separately.
+- If `mochi` is not found, activate the environment with `source .venv/bin/activate`.
+- If Apple MPS is unavailable, training may use CPU; verify with `mochi doctor` rather than assuming acceleration.
+- If Blender is missing, CLI features still work; Blender export requires the separate Blender application.
+- Keep personal data under `~/.mochi`; do not add it to a source archive or Git commit.
