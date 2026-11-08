@@ -52,11 +52,9 @@ This preview shows the output from running Mochi's welcome, status, and Think co
 
 ### Option A — Download the source archive
 
-Download the self-contained v0.2.0 source archive:
+**Distribution note:** the complete runnable source archive is included in the Mochi v0.2.0 project download bundle. The GitHub repository page currently hosts the project overview, docs, and terminal preview; the binary archive has not yet been attached as a GitHub Release asset. Use the source archive supplied with this project bundle for the install steps below.
 
-[**⬇ Download Mochi v0.2.0 source (.tar.xz)**](downloads/Mochi-v0.2.0-source.tar.xz)
-
-Verify its checksum, extract it, and run the installer:
+After downloading `Mochi-v0.2.0-source.tar.xz` and its checksum, extract it and run the installer:
 
 ```bash
 cd ~/Downloads
@@ -76,7 +74,7 @@ git clone https://github.com/ghostfacethegreat/Mochi-v0.2.0.git
 cd Mochi-v0.2.0
 ```
 
-The repository hosts the project hub, docs, and downloadable source archive. Use Option A for the complete runnable v0.2.0 source bundle.
+The repository currently hosts the project hub, docs, SVG branding, and terminal preview. The complete Python source is distributed separately in the source archive; it is not yet present as individual browsable files in the GitHub tree.
 
 ### Launch Mochi
 
