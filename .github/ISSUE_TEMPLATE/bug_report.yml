@@ -1,0 +1,32 @@
+name: Bug report
+description: Report a reproducible Mochi problem.
+title: "bug: "
+labels: [bug]
+body:
+  - type: textarea
+    id: summary
+    attributes:
+      label: What happened?
+      description: Include the exact command and full error output.
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: What did you expect?
+    validations:
+      required: true
+  - type: input
+    id: environment
+    attributes:
+      label: Environment
+      description: Mac/chip, RAM, OS, Python version, Mochi version.
+    validations:
+      required: true
+  - type: checkboxes
+    id: checks
+    attributes:
+      label: Safety / privacy check
+      options:
+        - label: I removed API keys, private data, and personal files from this report.
+          required: true
